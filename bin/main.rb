@@ -29,3 +29,33 @@ player_two_sym = if player_one_sym == 'X'
                  end
 
 puts "#{player_one} is #{player_one_sym} and #{player_two} is #{player_two_sym}"
+
+current_player = nil
+
+def move_check(move)
+  if (1..9).any?(move)
+    true
+  else
+    false
+  end
+end
+
+9.times do
+  if current_player == player_one
+    current_player = player_two
+    puts "#{current_player} select from available moves: "
+    player_move = gets.chomp.to_i
+    until move_check(player_move)
+      puts " #{current_player} make a correct move: "
+      player_move = gets.chomp.to_i
+    end
+  else
+    current_player = player_one
+    puts "#{current_player} select from available moves: "
+    player_move = gets.chomp.to_i
+    until move_check(player_move)
+      puts " #{current_player} make a correct move: "
+      player_move = gets.chomp.to_i
+    end
+  end
+end
