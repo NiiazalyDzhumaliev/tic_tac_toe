@@ -40,7 +40,21 @@ def move_check(move)
   end
 end
 
-9.times do
+def update_board(_move)
+  puts 'Validate move in the Board'
+  puts 'Update Board'
+  puts 'Displays Board'
+end
+
+def check_winner(_player)
+  puts 'check for win condition'
+  puts 'If winner Game Over else Continue Game'
+end
+
+game_on = true
+9.times do |count|
+  game_on = false if count == 8
+
   if current_player == player_one
     current_player = player_two
     puts "#{current_player} choose from available moves: "
@@ -58,4 +72,7 @@ end
       player_move = gets.chomp.to_i
     end
   end
+  update_board(player_move)
+  check_winner(current_player)
 end
+puts 'Game Over / Draw move ' unless game_on
