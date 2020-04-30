@@ -43,10 +43,10 @@ end
 9.times do
   if current_player == player_one
     current_player = player_two
-    puts "#{current_player} select from available moves: "
+    puts "#{current_player} choose from available moves: "
     player_move = gets.chomp.to_i
     until move_check(player_move)
-      puts " #{current_player} make a correct move: "
+      puts " #{current_player} choose a correct move: "
       player_move = gets.chomp.to_i
     end
   else
