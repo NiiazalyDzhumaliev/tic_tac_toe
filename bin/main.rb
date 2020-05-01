@@ -43,7 +43,7 @@ def sym_check(player)
          end
 end
 
-def self.move_check(player, move)
+def move_check(player, move)
   sym_check(player)
   if (1..9).any?(move)
     true if @play_board.update_board(@sym, move)
