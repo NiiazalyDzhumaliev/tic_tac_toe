@@ -75,18 +75,20 @@ while game_on
 
   if current_player == @player_one
     current_player = @player_two
-    puts "#{current_player} choose from available moves: "
+    puts "#{current_player} - #{@player_two_sym} choose from available moves: "
+    @play_board.display_board
     player_move = gets.chomp.to_i
     until move_check(current_player, player_move)
-      puts " #{current_player} choose a correct move: "
+      puts " #{current_player} - #{@player_two_sym} choose a correct move: "
       player_move = gets.chomp.to_i
     end
   else
     current_player = @player_one
-    puts "#{current_player} select from available moves: "
+    puts "#{current_player} - #{@player_one_sym} select from available moves: "
+    @play_board.display_board
     player_move = gets.chomp.to_i
     until move_check(current_player, player_move)
-      puts " #{current_player} make a correct move: "
+      puts " #{current_player} - #{@player_one_sym} make a correct move: "
       player_move = gets.chomp.to_i
     end
   end
