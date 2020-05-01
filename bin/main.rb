@@ -52,8 +52,10 @@ def check_winner(_player)
 end
 
 game_on = true
-9.times do |count|
+count = 0
+while game_on
   game_on = false if count == 8
+  break unless game_on
 
   if current_player == player_one
     current_player = player_two
@@ -74,5 +76,6 @@ game_on = true
   end
   update_board(player_move)
   check_winner(current_player)
+  count += 1
 end
 puts 'Game Over / Draw move ' unless game_on
