@@ -1,11 +1,7 @@
 #!/usr/bin/env ruby
+
 require_relative '../lib/game_logic.rb'
 
-class Main
-  def initialize
-    @player_one = nil
-    @player_two = nil
-  end
   puts '-------------Welcome to Tic Tak Toe-----------------'
   print 'Enter Player 1 name: '
 
@@ -21,33 +17,33 @@ class Main
 
   puts 'Player 1 Please Select Your Symbol X or O'
 
-  player_one_sym = gets.chomp.upcase
+  @player_one_sym = gets.chomp.upcase
 
-  while (player_one_sym != 'X') && (player_one_sym != 'O')
+  while (@player_one_sym != 'X') && (@player_one_sym != 'O')
     puts 'Please choose the correct symbol X or O'
     player_one_sym = gets.chomp.upcase
   end
 
-  player_two_sym = if player_one_sym == 'X'
+  @player_two_sym = if @player_one_sym == 'X'
                      'O'
                    else
                      'X'
                    end
 
-  puts "#{@player_one} is #{player_one_sym} and #{@player_two} is #{player_two_sym}"
+  puts "#{@player_one} is #{@player_one_sym} and #{@player_two} is #{@player_two_sym}"
 
   current_player = nil
-  play_board = GameLogic.new
+  @play_board = GameLogic.new
 
-  def move_check(player, move)
+  def self.move_check(player, move)
     sym = if player == @player_one
-            player_one_sym
+            @player_one_sym
           else
-            player_two_sym
+            @player_two_sym
           end
 
     if (1..9).any?(move)
-      true if play_board.update_board(sym, move)
+      true if @play_board.update_board(sym, move)
     else
       false
     end
@@ -55,15 +51,15 @@ class Main
 
   def check_winner(player)
     sym = if player == @player_one
-            player_one_sym
+            @player_one_sym
           else
-            player_two_sym
+            @player_two_sym
           end
     win = []
-    win << true if play_board.horizontal_check(sym)
-    win << true if play_board.vertical_check(sym)
-    win << true if play_board.diagonal_left_check(sym)
-    win << true if play_board.diagonal_right_check(sym)
+    win << true if @play_board.horizontal_check(sym)
+    win << true if @play_board.vertical_check(sym)
+    win << true if @play_board.diagonal_left_check(sym)
+    win << true if @play_board.diagonal_right_check(sym)
     if win.any?(true)
       puts "#{player} Wins!"
       true
@@ -82,7 +78,7 @@ class Main
       current_player = @player_two
       puts "#{current_player} choose from available moves: "
       player_move = gets.chomp.to_i
-      until move_check(current_player, player_move)
+      until self.move_check(current_player, player_move)
         puts " #{current_player} choose a correct move: "
         player_move = gets.chomp.to_i
       end
@@ -90,15 +86,15 @@ class Main
       current_player = @player_one
       puts "#{current_player} select from available moves: "
       player_move = gets.chomp.to_i
-      until move_check(current_player, player_move)
+      until self.move_check(current_player, player_move)
         puts " #{current_player} make a correct move: "
         player_move = gets.chomp.to_i
       end
     end
-    play_board.display_board
+    @play_board.display_board
     break if check_winner(current_player)
 
     count += 1
   end
   puts 'Game Over / Draw move ' unless game_on
-end
+

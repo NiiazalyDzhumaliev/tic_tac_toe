@@ -1,9 +1,9 @@
 class Board
   def initialize
     @board = [
-      %w[X 2 3],
-      %w[4 X 6],
-      %w[7 8 X]
+      %w[1 2 3],
+      %w[4 5 6],
+      %w[7 8 9]
     ]
   end
 
