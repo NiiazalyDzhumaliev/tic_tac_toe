@@ -1,7 +1,6 @@
 require_relative '../lib/board.rb'
 
 class GameLogic < Board
-  
   def horizontal_check(player_sym)
     i = 0
     win = false
@@ -81,7 +80,7 @@ class GameLogic < Board
     win
   end
 
-  def check_winner(current_player, current_sym)   
+  def check_winner(current_player, current_sym)
     win = []
     win << true if horizontal_check(current_sym)
     win << true if vertical_check(current_sym)

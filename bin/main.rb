@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/game_logic.rb'
-require_relative '../lib/Player.rb'
+require_relative '../lib/player.rb'
 require_relative '../lib/board.rb'
 
 puts '-------------Welcome to Tic Tak Toe-----------------'
@@ -27,10 +27,10 @@ while (player_one_sym != 'X') && (player_one_sym != 'O')
 end
 
 player_two_sym = if player_one_sym == 'X'
-                    'O'
-                  else
-                    'X'
-                  end
+                   'O'
+                 else
+                   'X'
+                 end
 
 puts "#{player_one} is #{player_one_sym} and #{player_two} is #{player_two_sym}"
 
@@ -43,8 +43,8 @@ count = 0
 while game_on
   game_on = false if count == 9
   break unless game_on
-  
-  current_sym = my_play.sym_check(current_player) 
+
+  current_sym = my_play.sym_check(current_player)
 
   if current_player == player_one
     current_player = player_two
