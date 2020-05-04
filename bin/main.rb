@@ -52,14 +52,11 @@ def check_winner(_player)
 end
 
 game_on = true
-count = 0
 while game_on
-  game_on = false if count == 8
-  break unless game_on
-
   if current_player == player_one
     current_player = player_two
     puts "#{current_player} choose from available moves: "
+    puts 'Board is displayed here'
     player_move = gets.chomp.to_i
     until move_check(player_move)
       puts " #{current_player} choose a correct move: "
@@ -68,6 +65,7 @@ while game_on
   else
     current_player = player_one
     puts "#{current_player} select from available moves: "
+    puts 'Board is displayed here'
     player_move = gets.chomp.to_i
     until move_check(player_move)
       puts " #{current_player} make a correct move: "
@@ -75,7 +73,8 @@ while game_on
     end
   end
   update_board(player_move)
-  check_winner(current_player)
-  count += 1
+  puts 'Board is displayed here'
+  game_on = false if winner # whether we found a winner or draw condition
+  break unless game_on
 end
 puts 'Game Over / Draw move ' unless game_on
