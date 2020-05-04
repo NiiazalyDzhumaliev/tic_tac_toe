@@ -1,6 +1,7 @@
 require_relative '../lib/board.rb'
 
 class GameLogic < Board
+  
   def horizontal_check(player_sym)
     i = 0
     win = false
@@ -11,6 +12,7 @@ class GameLogic < Board
         result << @board[i][x]
         x += 1
       end
+      p result
       if result.all?(player_sym)
         win = true
         break
@@ -77,5 +79,19 @@ class GameLogic < Board
       i += 1
     end
     win
+  end
+
+  def check_winner(current_player, current_sym)   
+    win = []
+    win << true if horizontal_check(current_sym)
+    win << true if vertical_check(current_sym)
+    win << true if diagonal_left_check(current_sym)
+    win << true if diagonal_right_check(current_sym)
+    if win.any?(true)
+      puts "#{current_player} Wins!"
+      true
+    else
+      false
+    end
   end
 end
