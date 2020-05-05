@@ -13,8 +13,8 @@ print 'Enter Player 1 name: '
 player_one = gets.chomp.capitalize
 
 until game_start.name_check(player_one)
-     puts "Please, don't left the empty space"
-     player_one = gets.chomp.capitalize
+  puts "Please, don't left the empty space"
+  player_one = gets.chomp.capitalize
 end
 
 puts "The Player 1 is #{player_one}"
