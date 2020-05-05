@@ -10,8 +10,7 @@ class GameLogic < Board
       while x < 3
         result << @board[i][x]
         x += 1
-      end
-      p result
+      end      
       if result.all?(player_sym)
         win = true
         break
