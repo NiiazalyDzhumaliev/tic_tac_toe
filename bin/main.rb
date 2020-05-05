@@ -76,8 +76,9 @@ while game_on
   end
 
   print logic.display_board
-  break if logic.check_winner(current_player, current_sym)
+  break if logic.check_winner(current_sym)
 
   count += 1
 end
+puts "Congratulations!!! #{current_player} wins the game." if game_on
 puts "No one wins it's a draw game. " unless game_on
