@@ -1,9 +1,9 @@
 class Board
   def initialize
     @board = [
-      %w[1 2 3],
-      %w[4 5 6],
-      %w[7 8 9]
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
     ]
   end
 
@@ -41,7 +41,7 @@ class Board
     while i < 3
       x = 0
       while x < 3
-        if @board[i][x] == move.to_s
+        if @board[i][x] == move
           @board[i][x] = player_sym
           return true
         end

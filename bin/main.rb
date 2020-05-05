@@ -48,10 +48,8 @@ my_play = Player.new(player_one, player_one_sym, player_two_sym)
 logic = GameLogic.new
 
 game_on = true
-count = 0
+
 while game_on
-  game_on = false if count == 9
-  break unless game_on
 
   current_sym = my_play.sym_check(current_player)
 
@@ -78,7 +76,9 @@ while game_on
   print logic.display_board
   break if logic.check_winner(current_sym)
 
-  count += 1
+  game_on = logic.draw_check
+  break unless game_on
+
 end
 puts "Congratulations!!! #{current_player} wins the game." if game_on
 puts "No one wins it's a draw game. " unless game_on

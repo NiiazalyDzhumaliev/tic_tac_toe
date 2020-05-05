@@ -8,4 +8,14 @@ class GameLogic < Board
     end
     false
   end
+
+  def draw_check
+    game_on = true
+    count = 0
+    @board.each do |sub_array|
+      count += 1 if sub_array.any?(Numeric)
+    end
+    game_on = false if count.zero?
+    game_on
+  end
 end
