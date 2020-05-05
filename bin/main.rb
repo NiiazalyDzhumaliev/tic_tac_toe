@@ -58,7 +58,7 @@ while game_on
   if current_player == player_one
     current_player = player_two
     puts "#{current_player} - #{player_two_sym} choose from available moves: "
-    logic.display_board
+    print logic.display_board
     player_move = gets.chomp.to_i
     until my_play.move_check(player_move) && logic.update_board(current_sym, player_move)
       puts " #{current_player} - #{player_two_sym} choose a correct move: "
@@ -67,7 +67,7 @@ while game_on
   else
     current_player = player_one
     puts "#{current_player} - #{player_one_sym} select from available moves: "
-    logic.display_board
+    print logic.display_board
     player_move = gets.chomp.to_i
     until my_play.move_check(player_move) && logic.update_board(current_sym, player_move)
       puts " #{current_player} - #{player_one_sym} make a correct move: "
@@ -75,7 +75,7 @@ while game_on
     end
   end
 
-  logic.display_board
+  print logic.display_board
   break if logic.check_winner(current_player, current_sym)
 
   count += 1

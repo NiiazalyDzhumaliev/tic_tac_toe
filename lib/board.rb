@@ -9,16 +9,18 @@ class Board
 
   def display_board
     i = 0
+    display = ''
     while i < 3
       x = 0
       while x < 3
-        print @board[i][x]
-        print '|'
+        display += @board[i][x].to_s
+        display += '|'
         x += 1
       end
       i += 1
-      puts ''
+      display += "\n"
     end
+    display
   end
 
   def update_board(player_sym, move)
