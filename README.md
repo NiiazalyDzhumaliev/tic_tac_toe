@@ -1,7 +1,7 @@
 # Tic Tac Toe
 > A quick classic mini game to play by command line.
 
-![screenshot](.img/screenshot_tic_tac_toe.png)
+![screenshot](img/screenshot_tic_tac_toe.png)
 
 <br>The aim of the project is object oriented programming concepts.<br>
 The project specifications can be seen in [Odin Project](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
