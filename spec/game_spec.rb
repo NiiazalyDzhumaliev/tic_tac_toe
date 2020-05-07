@@ -40,3 +40,20 @@ describe Player do
     end
   end
 end
+
+describe GameLogic do
+  let(:game_logic){GameLogic.new}
+
+  describe "#check_winner" do
+    it "returns false if no one wins with passed symbol" do
+      expect(game_logic.check_winner('X')).to eql(false)
+    end
+  end
+
+  describe "#draw_check" do
+    it "returs true while there is available move" do
+      expect(game_logic.draw_check).to eql(true)
+    end
+  end
+end
+  
