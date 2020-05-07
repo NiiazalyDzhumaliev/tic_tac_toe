@@ -8,7 +8,7 @@ describe GameStart do
 
   context "#name_check" do
     it "it returns false if empty" do
-      expect(game_start.name_check('')).to eq(false)
+      expect(game_start.name_check('')).to eql(false)
     end
   end
 end
