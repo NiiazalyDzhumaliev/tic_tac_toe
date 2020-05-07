@@ -10,8 +10,4 @@ class GameStart
   def sym_picker(player_one_sym)
     player_one_sym == 'X' ? 'O' : 'X'
   end
-
-  def number(num=1)
-    num
-  end
 end
