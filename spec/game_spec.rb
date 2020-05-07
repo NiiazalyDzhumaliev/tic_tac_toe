@@ -41,14 +41,22 @@ describe Player do
   let(:player) { Player.new('John', 'X', 'O') }
 
   describe '#sym_check' do
-    it "returns next player's symbol" do
+    it "returns second player's symbol" do
       expect(player.sym_check('John')).to eql('O')
+    end
+    
+    it "returns first player's symbol" do
+      expect(player.sym_check('Sam')).to eql('X')
     end
   end
 
   describe '#move_check' do
     it 'returns false if move other than (1-9)' do
       expect(player.move_check(11)).to eql(false)
+    end
+
+    it 'returns true if move in (1-9) range' do
+      expect(player.move_check(2)).to eql(true)
     end
   end
 end
@@ -59,12 +67,24 @@ describe GameLogic do
   describe '#check_winner' do
     it 'returns false if no one wins with passed symbol' do
       expect(game_logic.check_winner('X')).to eql(false)
+    end    
+
+    it'returns true if player wins' do
+      game_logic.update_board('X', 1)
+      game_logic.update_board('X', 2)
+      game_logic.update_board('X', 3)
+      expect(game_logic.check_winner('X')).to eql(true)
     end
   end
 
   describe '#draw_check' do
-    it 'returs true while there is available move' do
+    it 'returns true while there is available move' do
       expect(game_logic.draw_check).to eql(true)
+    end  
+    
+    it 'returns false if there is no available move' do
+      game_logic.board = [['X', 'O', 'X'], ['O', 'X', 'O'], ['X', 'O', 'X']]
+      expect(game_logic.draw_check).to eql(false)
     end
   end
 end
