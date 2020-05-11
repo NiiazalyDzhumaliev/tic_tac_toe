@@ -1,4 +1,5 @@
 class Board
+  attr_writer :board
   def initialize
     @board = [
       [1, 2, 3],
